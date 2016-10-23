@@ -32,10 +32,10 @@
 	 
 	<servlet-mapping>
 	    <servlet-name>springmvc</servlet-name>
-	    <url-pattern>/mvc</url-pattern>
+	    <url-pattern>/mvc/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 	    <servlet-name>springbean</servlet-name>
-	    <url-pattern>/bean</url-pattern>
+	    <url-pattern>/bean/*</url-pattern>
 	</servlet-mapping>
 </web-app>
