@@ -4,6 +4,27 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	
+	<!-- 配置是Spring集成Web环境的通用配置；一般用于加载除Web层的Bean（如DAO、Service等），以便于与其他任何Web框架集成
+	contextConfigLocation：表示用于加载Bean的配置文件;
+	contextClass：表示用于加载Bean的ApplicationContext实现类，默认WebApplicationContext。 
+	创建完毕后会将该上下文放在ServletContext：
+	servletContext.setAttribute(
+	WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, this.context);
+	ContextLoaderListener初始化的上下文加载的Bean是对于整个应用程序共享的，不管是使用什么表现层技术，一般如DAO层、Service层Bean
+	-->
+	<context-param>
+	  <param-name>contextConfigLocation</param-name>
+      <param-value>
+          classpath:spring-common-config.xml,
+          classpath:spring-dao-config.xml
+      </param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+	
+	<!-- DispatcherServlet初始化的上下文加载的Bean是只对Spring Web MVC有效的Bean，如Controller、HandlerMapping、HandlerAdapter等等，该初始化上下文应该只加载Web相关组件 -->
 	<!--configure the setting of springmvcDispatcherServlet and configure the mapping-->
 	<servlet>
 	    <servlet-name>springmvc</servlet-name>

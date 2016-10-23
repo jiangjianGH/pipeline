@@ -28,6 +28,9 @@
     </bean>
     
     <!-- 处理器 -->
-    <bean name="/hello2" class="org.jiang.controller.HelloWorldController"/>  
-    
+    <bean name="/hello" class="org.jiang.controller.HelloWorldController"/>  
+    <bean name="/helloNoReturn" class="org.jiang.controller.HelloWorldWithoutReturnModelAndViewController"/>  
+    <bean name="/helloOnlyPOST" class="org.jiang.controller.HelloWorldController">
+        <property name="supportedMethods" value="POST" />
+    </bean>
 </beans>

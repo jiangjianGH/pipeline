@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mvc")
+@RequestMapping("/")
 public class BookServiceController {
 	@RequestMapping("/hello")
 	public String hello(){        
-        return "hello2";
+        return "hello";
     }
 
 }
